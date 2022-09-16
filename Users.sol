@@ -66,21 +66,27 @@ function createUser(
 
     ));
 
-    if(userinfo.person==personType.Client)
-    {
-        clientcounter++;
-        clientdetails.push(client(
-          usercounter,
-          clientcounter
-        ));
-    }else if(userinfo.person==personType.Supplier)
-    {
-        suppliercounter++;
-        supplierdetails.push(supplier(
-           usercounter,
-           suppliercounter
-        ));
-    }
+    return true;
+}
+
+//function to create client
+function createClient(uint256 userId)external returns(bool)
+{
+    clientcounter++;
+    clientdetails.push(client(
+    userId,
+    clientcounter));
+    return true;
+}
+
+//function to create supplier
+function createSupplier(uint256 userId)external returns(bool)
+{
+    suppliercounter++;
+    supplierdetails.push(supplier(
+        userId,
+        suppliercounter
+    ));
     return true;
 }
 
